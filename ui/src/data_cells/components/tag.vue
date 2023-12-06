@@ -80,7 +80,11 @@ export default {
   emits: ['tag-click'],
   computed: {
     colorClass () {
-      return COLORS[this.value]
+      if (this.format.color_options) {
+        return COLORS[this.format.color_options[this.value]]
+      } else {
+        return COLORS[this.value]
+      }
     },
     options () {
       return this.format.select_options || {}
