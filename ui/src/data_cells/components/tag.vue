@@ -55,6 +55,7 @@ const COLORS = {
   enabled: 'ivu-tag-green',
   resolved: 'ivu-tag-green',
   disabled: 'ivu-tag-red',
+  invalid: 'ivu-tag-red',
   blue: 'ivu-tag-blue',
   geek_blue: 'ivu-tag-geekblue',
   green: 'ivu-tag-green',
