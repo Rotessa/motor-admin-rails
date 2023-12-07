@@ -55,7 +55,27 @@ const COLORS = {
   enabled: 'ivu-tag-green',
   resolved: 'ivu-tag-green',
   disabled: 'ivu-tag-red',
-  invalid: 'ivu-tag-red'
+  blue: 'ivu-tag-blue',
+  geek_blue: 'ivu-tag-geekblue',
+  green: 'ivu-tag-green',
+  lime: 'ivu-tag-lime',
+  red: 'ivu-tag-red',
+  yellow: 'ivu-tag-yellow',
+  orange: 'ivu-tag-orange',
+  volcano: 'ivu-tag-volcano',
+  purple: 'ivu-tag-purple',
+  magenta: 'ivu-tag-magenta',
+  pink: 'ivu-tag-pink',
+  cyan: 'ivu-tag-cyan',
+  gray: 'ivu-tag-gray',
+  light_gray: 'ivu-tag-default',
+  default: 'ivu-tag-default',
+  gold: 'ivu-tag-gold',
+  primary: 'ivu-tag-primary',
+  info: 'ivu-tag-blue',
+  success: 'ivu-tag-success',
+  error: 'ivu-tag-error',
+  warning: 'ivu-tag-warning'
 }
 
 export default {
