@@ -60,6 +60,7 @@
     :model-value="dataValue"
     :options="Array.isArray(tagOptions) ? tagOptions : Object.keys(tagOptions)"
     v-bind="$attrs"
+    filterable
     :allow-create="!Object.entries(tagOptions).length"
     :multiple="column.is_array || !!column.format?.split_tags_by"
     :label-function="Object.entries(tagOptions).length ? (option) => tagOptions[option.value.toString()] || titleize(option.value.toString()) : (option) => option.value.toString()"
