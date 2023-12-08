@@ -45,6 +45,16 @@
     @update:model-value="$emit('update:modelValue', $event)"
     @select="onSelect"
   />
+  <QueryValueSelect
+    v-else-if="isTagSelect && selectQueryId"
+    :model-value="dataValue"
+    :query-id="selectQueryId"
+    :form-data="formData"
+    :multiple="column.is_array || !!column.format?.split_tags_by"
+    v-bind="$attrs"
+    @update:model-value="$emit('update:modelValue', column.format?.split_tags_by ? $event.join(column.format.split_tags_by) : $event)"
+    @select="onSelect"
+  />
   <MSelect
     v-else-if="isTagSelect"
     :model-value="dataValue"
