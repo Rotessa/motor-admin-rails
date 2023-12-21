@@ -91,6 +91,16 @@
         :reference="dataColumn.reference"
       />
       <FormItem
+        v-if="dataColumn.column_type === 'select' || dataColumn.column_type === 'tag'"
+        :label="i18n['select_query']"
+        prop="format.select_query_id"
+      >
+        <QuerySelect v-model="dataColumn.format.select_query_id" />
+      </FormItem>
+      <p v-if="dataColumn.column_type === 'tag'" class="text-center">
+        - or -
+      </p>
+      <FormItem
         v-if="dataColumn.column_type === 'tag'"
         :label="i18n['select_options']"
         prop="format.select_options"
@@ -109,13 +119,6 @@
         </div>
       </FormItem>
       <FormItem
-        v-if="dataColumn.column_type === 'select'"
-        :label="i18n['select_query']"
-        prop="format.select_query_id"
-      >
-        <QuerySelect v-model="dataColumn.format.select_query_id" />
-      </FormItem>
-      <FormItem
         v-if="dataColumn.column_type === 'link'"
         :label="i18n['link_text']"
         prop="format.link_text"
@@ -132,6 +135,16 @@
         <MSelect
           v-model="dataColumn.format.split_tags_by"
           :options="splitTagOptions"
+        />
+      </FormItem>
+      <FormItem
+        v-if="dataColumn.column_type === 'tag'"
+        :label="i18n['color_options']"
+        prop="format.color_options"
+      >
+        <OptionsInput
+          v-model="dataColumn.format.color_options"
+          :options-text="colorOptionsText"
         />
       </FormItem>
       <FormItem
