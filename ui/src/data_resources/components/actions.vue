@@ -448,7 +448,7 @@ export default {
         },
         onSubmitData: (data) => {
           Promise.all(resources.map((resource) => {
-            return this.apiRequest(resource, form)
+            return this.apiRequest({ ...resource, ...data }, form)
           })).then((result) => {
             this.$Message.info(this.i18n.action_has_been_applied)
           }).catch((error) => {

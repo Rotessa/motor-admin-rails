@@ -190,7 +190,7 @@ export default {
       } else {
         this.$refs.form.validate((valid) => {
           if (valid) {
-            this.$emit('submitData', this.formData)
+            this.$emit('submitData', { ...this.formData, ...this.$refs.form.formData })
           } else {
             this.$refs.form.scrollToErrors()
           }
