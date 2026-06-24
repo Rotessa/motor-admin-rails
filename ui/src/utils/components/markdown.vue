@@ -62,12 +62,19 @@ export default {
     }
   },
   watch: {
-    markdown: throttle(function () {
-      this.render()
-    }, 500),
-    data: throttle(function () {
-      this.render()
-    }, 500)
+    markdown () {
+      this.throttledRender()
+    },
+    data () {
+      this.throttledRender()
+    }
+  },
+  created () {
+    // Throttle must be created per-instance: defining it inline in `watch`
+    // shares a single timer across every QueryMarkdown on the page, so when
+    // multiple markdown cards on a dashboard receive data within the same
+    // window only one re-renders and the rest stay blank.
+    this.throttledRender = throttle(() => this.render(), 500)
   },
   mounted () {
     this.render()
@@ -76,7 +83,8 @@ export default {
     render () {
       liquidEngine.parseAndRender(this.markdown, this.data).then((result) => {
         this.renderedTemplate = result
-      }).catch(() => {
+      }).catch((error) => {
+        console.error('Failed to render markdown template', error)
       })
     }
   }
